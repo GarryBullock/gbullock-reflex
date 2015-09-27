@@ -35,8 +35,8 @@ public class ReactionTestActivity extends AppCompatActivity {
     Runnable reactionGame = new Runnable() {
         @Override
         public void run() {
-            validPress = true;
             userTapTime = System.currentTimeMillis();
+            validPress = true;
             text.setText("Tap!");
             button.setBackgroundColor(0xff12c20a);
         }
@@ -103,7 +103,7 @@ public class ReactionTestActivity extends AppCompatActivity {
     private void buildDismissibleMessage(String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(ReactionTestActivity.this);
         builder.setMessage(message);
-        builder.setCancelable(true);
+        builder.setCancelable(false);
         builder.setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
