@@ -60,7 +60,6 @@ public class ReactionTestActivity extends AppCompatActivity {
         super.onPause();
         //if we leave the app, stop the timer.
         h.removeCallbacks(reactionGame);
-        validPress = false;
     }
 
     //currently on resume will play the first time through... must stop this
@@ -69,11 +68,15 @@ public class ReactionTestActivity extends AppCompatActivity {
         super.onResume();
         //checking if it is the first time through the loop ensures this post wont be done while
         //the initial message is being played.
+        if(validPress) {
+            text.setText("Wait for it...");
+            button.setBackgroundColor(0xfff84525);
+        }
+        validPress = false;
         if(!firstLoop) {
             h.postDelayed(reactionGame, randomTime());
         }
         firstLoop = false;
-        validPress = false;
     }
 
     private void initializeListeners(){
