@@ -16,6 +16,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ReactionTestActivity"
+            android:label="@string/title_activity_reaction_test" >
+        </activity>
+        <activity
+            android:name=".SelectPlayerActivity"
+            android:label="@string/title_activity_select_player" >
+        </activity>
+        <activity
+            android:name=".TwoPlayerActivity"
+            android:label="@string/title_activity_two_player" >
+        </activity>
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="@string/title_activity_statistics"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="garrybullock.reflex.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

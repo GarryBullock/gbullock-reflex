@@ -1,27 +1,41 @@
 package garrybullock.reflex;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class ReactionTestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_reaction_test);
+        //findViewById(R.id.reactionButton).setBackgroundColor(0xfff84525);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("When the text changes from wait to tap, tap the button as fast as you can!");
+        builder.setCancelable(true);
+        builder.setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
     }
-    /*
+
+        /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_reaction_test, menu);
         return true;
     }
     */
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -35,20 +49,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void launchReactionTest(View view){
-        Intent intent = new Intent(this, ReactionTestActivity.class);
-        startActivity(intent);
-    }
-
-    public void launchTriviaBuzzer(View view){
-        Intent intent = new Intent(this, SelectPlayerActivity.class);
-        startActivity(intent);
-    }
-
-    public void launchStatsActivity(View view){
-        Intent intent = new Intent(this, StatisticsActivity.class);
-        startActivity(intent);
     }
 }
