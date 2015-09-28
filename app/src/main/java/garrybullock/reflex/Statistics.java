@@ -8,11 +8,12 @@ import java.util.Collections;
  */
 public class Statistics {
 
-    private static Statistics stats = new Statistics();
     protected ArrayList<Integer> statList;
-
     public Statistics() {
         this.statList = new ArrayList<>();
+    }
+    public Statistics(ArrayList<Integer> list){
+        this.statList = list;
     }
 
     public ArrayList<Integer> getStatList() {
@@ -33,10 +34,6 @@ public class Statistics {
             lastX.add(statList.get((statList.size())-i));
         }
         return lastX;
-    }
-
-    public static Statistics getInstance(){
-        return stats;
     }
 
     public ArrayList<String> getStatStrings(){

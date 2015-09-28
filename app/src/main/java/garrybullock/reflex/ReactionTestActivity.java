@@ -15,6 +15,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -30,7 +43,9 @@ public class ReactionTestActivity extends AppCompatActivity {
 
     private Button button;
     private TextView text;
-    public  Statistics stat;
+    private Statistics stat;
+
+    private static final String FILENAME = "persist.sav";
 
     Runnable reactionGame = new Runnable() {
         @Override
@@ -46,12 +61,11 @@ public class ReactionTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_test);
+        loadFromFile();
         button = (Button) findViewById(R.id.reactionButton);
         text = (TextView) findViewById(R.id.reactionTestText);
     //test build 1000 stats
-        for(int i = 0; i <= 1000; i++){
-            Statistics.getInstance().addStat((int)randomTime());
-        }
+
         buildDismissibleMessage("Wait until the button goes from red to green, and the text tells" +
                 " you to tap, then tap as quickly as possible!");
         initializeListeners();
@@ -62,6 +76,7 @@ public class ReactionTestActivity extends AppCompatActivity {
         super.onPause();
         //if we leave the app, stop the timer.
         h.removeCallbacks(reactionGame);
+        saveInFile();
     }
 
     //currently on resume will play the first time through... must stop this
@@ -74,6 +89,7 @@ public class ReactionTestActivity extends AppCompatActivity {
             text.setText("Wait for it...");
             button.setBackgroundColor(0xfff84525);
         }
+        loadFromFile();
         validPress = false;
         if(!firstLoop) {
             h.postDelayed(reactionGame, randomTime());
@@ -89,7 +105,7 @@ public class ReactionTestActivity extends AppCompatActivity {
                     long reactionTime =  (System.currentTimeMillis() - userTapTime);
                     validPress = false;
                     buildDismissibleMessage("Reaction Time: " + String.valueOf(reactionTime) + "ms.");
-                    Statistics.getInstance().addStat((int) reactionTime);
+                    stat.addStat((int)reactionTime);
 
                 }
                 else{
@@ -124,6 +140,42 @@ public class ReactionTestActivity extends AppCompatActivity {
     public long randomTime(){
         Random random = new Random();
         return random.nextInt(maxTime - minTime) + minTime;
+    }
+
+    //Code utilized from CMPUT 301 Lab 3
+    private void loadFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
+
+            stat = gson.fromJson(in, Statistics.class);
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            stat = new Statistics();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void saveInFile() {
+        try {
+            //MODE_APPEND appends to end of file, 0 is write mode
+            FileOutputStream fos = openFileOutput(FILENAME, 0);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson gson = new Gson();
+            gson.toJson(stat, out);
+            out.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException(e);
+        }
     }
 
 }
