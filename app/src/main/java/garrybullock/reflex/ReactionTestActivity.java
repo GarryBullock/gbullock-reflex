@@ -46,7 +46,6 @@ public class ReactionTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_test);
-        stat = new Statistics();
         button = (Button) findViewById(R.id.reactionButton);
         text = (TextView) findViewById(R.id.reactionTestText);
 
@@ -87,7 +86,7 @@ public class ReactionTestActivity extends AppCompatActivity {
                     long reactionTime =  (System.currentTimeMillis() - userTapTime);
                     validPress = false;
                     buildDismissibleMessage("Reaction Time: " + String.valueOf(reactionTime) + "ms.");
-                    stat.addStat((int) reactionTime);
+                    Statistics.getInstance().addStat((int) reactionTime);
 
                 }
                 else{

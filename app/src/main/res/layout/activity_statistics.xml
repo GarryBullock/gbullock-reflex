@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:id="@+id/listView"
             android:layout_gravity="center_horizontal"
-            android:layout_weight=".1" />
+            android:layout_weight=".10" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -31,18 +31,19 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buzzer Stats"
-                android:id="@+id/button"
-                android:layout_weight=".5"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp" />
+                android:text="Reaction Stats"
+                android:id="@+id/reactionStatButton"
+                android:layout_weight=".5" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reaction Stats"
-                android:id="@+id/button2"
-                android:layout_weight=".5" />
+                android:text="Buzzer Stats"
+                android:id="@+id/buzzerStatButton"
+                android:layout_weight=".5"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp" />
+
         </LinearLayout>
 
     </LinearLayout>

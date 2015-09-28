@@ -6,6 +6,8 @@ import java.util.ArrayList;
  * Created by Garry on 2015-09-27.
  */
 public class Statistics {
+
+    private static final Statistics stats = new Statistics();
     protected ArrayList<Integer> statList;
 
     public Statistics() {
@@ -33,6 +35,10 @@ public class Statistics {
             lastX.add(statList.get((statList.size()-1)-i));
         }
         return lastX;
+    }
+
+    public static Statistics getInstance(){
+        return stats;
     }
 
 }
