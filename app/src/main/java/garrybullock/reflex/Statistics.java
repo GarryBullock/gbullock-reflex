@@ -14,10 +14,6 @@ public class Statistics {
         this.statList = new ArrayList<>();
     }
 
-    public Statistics(ArrayList<Integer> statList) {
-        this.statList = statList;
-    }
-
     public ArrayList<Integer> getStatList() {
         return statList;
     }
