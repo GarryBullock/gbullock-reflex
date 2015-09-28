@@ -30,7 +30,7 @@ public class ReactionTestActivity extends AppCompatActivity {
 
     private Button button;
     private TextView text;
-
+    public  Statistics stat;
 
     Runnable reactionGame = new Runnable() {
         @Override
@@ -46,7 +46,7 @@ public class ReactionTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_test);
-
+        stat = new Statistics();
         button = (Button) findViewById(R.id.reactionButton);
         text = (TextView) findViewById(R.id.reactionTestText);
 
@@ -84,9 +84,11 @@ public class ReactionTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validPress){
-                    long reactionTime = (System.currentTimeMillis() - userTapTime);
+                    long reactionTime =  (System.currentTimeMillis() - userTapTime);
                     validPress = false;
                     buildDismissibleMessage("Reaction Time: " + String.valueOf(reactionTime) + "ms.");
+                    stat.addStat((int) reactionTime);
+
                 }
                 else{
                     //This was an invalid press. Stop the handler, display message, and restart the handler
