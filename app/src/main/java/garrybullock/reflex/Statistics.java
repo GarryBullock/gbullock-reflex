@@ -22,13 +22,14 @@ public class Statistics {
         statList.add(integer);
     }
 
-    private ArrayList<Integer> getLastX(Integer toGet){
-        if(statList.size() <= 0){
+    public ArrayList<Integer> getLastX(Integer toGet){
+        if(statList.size() < toGet){
             return null;
         }
+
         ArrayList<Integer> lastX = new ArrayList<>();
         for (int i = toGet; i > 0 ; i--) {
-            lastX.add(statList.get((statList.size()-1)-i));
+            lastX.add(statList.get((statList.size())-i));
         }
         return lastX;
     }
