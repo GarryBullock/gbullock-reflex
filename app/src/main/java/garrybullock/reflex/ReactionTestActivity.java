@@ -48,7 +48,10 @@ public class ReactionTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reaction_test);
         button = (Button) findViewById(R.id.reactionButton);
         text = (TextView) findViewById(R.id.reactionTestText);
-
+    //test build 1000 stats
+        for(int i = 0; i <= 1000; i++){
+            Statistics.getInstance().addStat((int)randomTime());
+        }
         buildDismissibleMessage("Wait until the button goes from red to green, and the text tells" +
                 " you to tap, then tap as quickly as possible!");
         initializeListeners();

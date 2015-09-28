@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class StatisticsActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<Integer> statsList;
-    ArrayAdapter<Integer> reactionAdapter;
+    ArrayAdapter<String> reactionAdapter;
     ArrayAdapter<Integer> buzzerAdapter;
     ArrayList<Integer> buzzerList;
 
@@ -23,8 +23,9 @@ public class StatisticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
         listView = (ListView) findViewById(R.id.statListView);
-        statsList = Statistics.getInstance().getStatList();
-        reactionAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, statsList );
+
+        //statsList = Statistics.getInstance().getStatList();
+        reactionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Statistics.getInstance().getStatStrings());
 
         //create second adapter for buzzer stats that we can switch through with buttons
         buzzerList = Statistics.getInstance().getLastX(2);
