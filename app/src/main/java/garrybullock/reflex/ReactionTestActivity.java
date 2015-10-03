@@ -1,22 +1,16 @@
 package garrybullock.reflex;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -26,8 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -43,7 +35,7 @@ public class ReactionTestActivity extends AppCompatActivity {
 
     private Button button;
     private TextView text;
-    private Statistics stat;
+    private ReactionStatistics stat;
 
     private static final String FILENAME = "persist.sav";
 
@@ -135,8 +127,9 @@ public class ReactionTestActivity extends AppCompatActivity {
         builder.show();
     }
 
-    //need to cite? stackoverflow: http://stackoverflow.com/questions/6029495/how-can-i-generate-random-number-in-specific-range-in-android
+    //stackoverflow: http://stackoverflow.com/questions/6029495/how-can-i-generate-random-number-in-specific-range-in-android
     //user: Mr.Polywhirl
+    //Date: Sep 27/2015
     public long randomTime(){
         Random random = new Random();
         return random.nextInt(maxTime - minTime) + minTime;
@@ -149,11 +142,11 @@ public class ReactionTestActivity extends AppCompatActivity {
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
 
-            stat = gson.fromJson(in, Statistics.class);
+            stat = gson.fromJson(in, ReactionStatistics.class);
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
-            stat = new Statistics();
+            stat = new ReactionStatistics();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             throw new RuntimeException(e);
