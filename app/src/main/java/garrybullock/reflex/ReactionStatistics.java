@@ -12,13 +12,6 @@ public class ReactionStatistics {
     public ReactionStatistics() {
         this.statList = new ArrayList<>();
     }
-    public ReactionStatistics(ArrayList<Integer> list){
-        this.statList = list;
-    }
-
-    public ArrayList<Integer> getStatList() {
-        return statList;
-    }
 
     public void addStat(Integer integer){
         statList.add(integer);

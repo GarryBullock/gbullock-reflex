@@ -13,5 +13,5 @@ public class TwoPlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_two_player);
     }
 
-   
+
 }

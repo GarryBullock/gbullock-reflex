@@ -24,40 +24,21 @@ import java.util.Random;
 
 
 public class ReactionTestActivity extends AppCompatActivity {
-
-    private boolean validPress = false;
-    private long userTapTime;
-    private final Handler h = new Handler();
-    private boolean firstLoop = true;
-
-    final static int minTime = 10;
-    final static int maxTime = 2000;
-
     private Button button;
     private TextView text;
     private ReactionStatistics stat;
 
     private static final String FILENAME = "persist.sav";
-
-    Runnable reactionGame = new Runnable() {
-        @Override
-        public void run() {
-            userTapTime = System.currentTimeMillis();
-            validPress = true;
-            text.setText("Tap!");
-            button.setBackgroundColor(0xff12c20a);
-        }
-    };
+    private ReactionGame game;
+    private Boolean firstLoop = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_test);
-        loadFromFile();
         button = (Button) findViewById(R.id.reactionButton);
         text = (TextView) findViewById(R.id.reactionTestText);
-    //test build 1000 stats
-
+        game = new ReactionGame(button, text, ReactionTestActivity.this);
         buildDismissibleMessage("Wait until the button goes from red to green, and the text tells" +
                 " you to tap, then tap as quickly as possible!");
         initializeListeners();
@@ -67,8 +48,8 @@ public class ReactionTestActivity extends AppCompatActivity {
     public void onPause(){
         super.onPause();
         //if we leave the app, stop the timer.
-        h.removeCallbacks(reactionGame);
-        saveInFile();
+        game.pauseGame();
+        game.close();
     }
 
     //currently on resume will play the first time through... must stop this
@@ -77,34 +58,32 @@ public class ReactionTestActivity extends AppCompatActivity {
         super.onResume();
         //checking if it is the first time through the loop ensures this post wont be done while
         //the initial message is being played.
-        if(validPress) {
+        if(game.isValidPress()) {
             text.setText("Wait for it...");
             button.setBackgroundColor(0xfff84525);
         }
-        loadFromFile();
-        validPress = false;
         if(!firstLoop) {
-            h.postDelayed(reactionGame, randomTime());
+            game.resumeGame();
         }
-        firstLoop = false;
+        else{
+            //game.validPress = false;
+            firstLoop = false;
+        }
     }
 
     private void initializeListeners(){
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validPress){
-                    long reactionTime =  (System.currentTimeMillis() - userTapTime);
-                    validPress = false;
-                    buildDismissibleMessage("Reaction Time: " + String.valueOf(reactionTime) + "ms.");
-                    stat.addStat((int)reactionTime);
+                if(game.isValidPress()){
+                    game.playGame();
+                    buildDismissibleMessage("Reaction Time: " + game.getReactionTime() + "ms.");
 
                 }
                 else{
                     //This was an invalid press. Stop the handler, display message, and restart the handler
-                    h.removeCallbacks(reactionGame);
+                    game.pauseGame();
                     buildDismissibleMessage("Wait until you are told to tap!");
-                    validPress = false;
                 }
             }
         };
@@ -119,22 +98,12 @@ public class ReactionTestActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                h.postDelayed(reactionGame, randomTime());
-                text.setText("Wait for it...");
-                button.setBackgroundColor(0xfff84525);
+                game.startGame();
             }
         });
         builder.show();
     }
-
-    //stackoverflow: http://stackoverflow.com/questions/6029495/how-can-i-generate-random-number-in-specific-range-in-android
-    //user: Mr.Polywhirl
-    //Date: Sep 27/2015
-    public long randomTime(){
-        Random random = new Random();
-        return random.nextInt(maxTime - minTime) + minTime;
-    }
-
+/*
     //Code utilized from CMPUT 301 Lab 3
     private void loadFromFile() {
         try {
@@ -170,5 +139,5 @@ public class ReactionTestActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
     }
-
+*/
 }

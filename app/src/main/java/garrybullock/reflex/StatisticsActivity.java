@@ -26,21 +26,21 @@ public class StatisticsActivity extends AppCompatActivity {
     ArrayAdapter<String> reactionAdapter;
     ArrayAdapter<Integer> buzzerAdapter;
     ArrayList<Integer> buzzerList;
-    private static final String FILENAME = "persist.sav";
     private ReactionStatistics stat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-        loadFromFile();
-        listView = (ListView) findViewById(R.id.statListView);
 
-        reactionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stat.getStatStrings());
+        //create the adapter that will display reaction statistics
+        ReactionGame game = new ReactionGame(StatisticsActivity.this);
+        listView = (ListView) findViewById(R.id.statListView);
+        reactionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, game.getStats().getStatStrings());
 
         //create second adapter for buzzer stats that we can switch through with buttons
         //buzzerList = ReactionStatistics.getInstance().getLastX(2);
-        buzzerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, buzzerList);
+        //buzzerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, buzzerList);
         listView.setAdapter(reactionAdapter);
     }
 
@@ -78,41 +78,5 @@ public class StatisticsActivity extends AppCompatActivity {
         listView.setAdapter((buzzerAdapter));
     }
 
-    //Code modified with permission from Joshua Campbell
-    //https://github.com/joshua2ua/lonelyTwitter
-    //Date: Sep 28/2015
-    private void loadFromFile() {
-        try {
-            FileInputStream fis = openFileInput(FILENAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            Gson gson = new Gson();
 
-            stat = gson.fromJson(in, ReactionStatistics.class);
-
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            stat = new ReactionStatistics();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void saveInFile() {
-        try {
-            //MODE_APPEND appends to end of file, 0 is write mode
-            FileOutputStream fos = openFileOutput(FILENAME, 0);
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
-            Gson gson = new Gson();
-            gson.toJson(stat, out);
-            out.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException(e);
-        }
-    }
 }
