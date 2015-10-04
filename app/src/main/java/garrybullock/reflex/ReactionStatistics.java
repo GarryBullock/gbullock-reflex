@@ -43,6 +43,12 @@ public class ReactionStatistics {
     }
 
     private String minStats(){
+        if(statList.isEmpty()){
+            return ("\nMinimum Time \n" +
+                    "\t\t\tLast 10:  "+ 0 + " ms\n" +
+                    "\t\t\tLast 100: "+ 0 + " ms\n" +
+                    "\t\t\tAll Time: "+ 0+ " ms");
+        }
         return ("\nMinimum Time \n" +
                 "\t\t\tLast 10:  "+ Collections.min(getLastX(10)) + " ms\n" +
                 "\t\t\tLast 100: "+ Collections.min(getLastX(100)) + " ms\n" +
@@ -50,6 +56,12 @@ public class ReactionStatistics {
     }
 
     private String maxStats(){
+        if(statList.isEmpty()){
+            return ("\nMaximum Time \n" +
+                    "\t\t\tLast 10:  "+ 0 + " ms\n" +
+                    "\t\t\tLast 100: "+ 0 + " ms\n" +
+                    "\t\t\tAll Time: "+ 0+ " ms");
+        }
         return ("\nMaximum Time \n" +
                 "\t\t\tLast 10: "+ Collections.max(getLastX(10)) + " ms\n" +
                 "\t\t\tLast 100: "+ Collections.max(getLastX(100)) + " ms\n" +
@@ -87,6 +99,9 @@ public class ReactionStatistics {
     private Integer getMedian(ArrayList<Integer> stats){
         Collections.sort(stats);
         //if the array is even, we have to return a value in between the most middle two values
+        if(stats.isEmpty()){
+            return 0;
+        }
         if((stats.size() % 2) == 0){
             return ((stats.get((stats.size()/2)-1) + stats.get(stats.size()/2))/2);
         }

@@ -48,7 +48,7 @@ public class TriviaBuzzer {
                 "\t\t\tPlayer One: "+ getPlayer(1, 5) + " Wins\n" +
                 "\t\t\tPlayer Two: "+ getPlayer(2, 5) + " Wins\n" +
                 "\t\t\tPlayer Three: "+ getPlayer(3, 5) + " Wins\n" +
-                "\t\t\tPlayer Four:" + getPlayer(4, 5) + " Wins");
+                "\t\t\tPlayer Four: " + getPlayer(4, 5) + " Wins");
         return strings;
     }
 

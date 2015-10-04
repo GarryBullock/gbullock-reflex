@@ -101,7 +101,6 @@ public class ReactionGame {
 
     public void clear(){
         stats.clear();
-        stats.addStat(0);
         close();
     }
 

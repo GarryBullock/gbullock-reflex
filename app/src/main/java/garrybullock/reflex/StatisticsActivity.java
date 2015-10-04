@@ -79,12 +79,9 @@ public class StatisticsActivity extends AppCompatActivity {
 
                 buzzer.clear();
                 buzzerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, buzzer.getStats());
-
-
                 game.clear();
-                //reactionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getStats().getStatStrings());
-
                 if(listView.getAdapter() == reactionAdapter){
+                    reactionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getStats().getStatStrings());
                     listView.setAdapter(reactionAdapter);
                 }
                 else listView.setAdapter(buzzerAdapter);

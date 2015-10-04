@@ -103,41 +103,5 @@ public class ReactionTestActivity extends AppCompatActivity {
         });
         builder.show();
     }
-/*
-    //Code utilized from CMPUT 301 Lab 3
-    private void loadFromFile() {
-        try {
-            FileInputStream fis = openFileInput(FILENAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            Gson gson = new Gson();
 
-            stat = gson.fromJson(in, ReactionStatistics.class);
-
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            stat = new ReactionStatistics();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void saveInFile() {
-        try {
-            //MODE_APPEND appends to end of file, 0 is write mode
-            FileOutputStream fos = openFileOutput(FILENAME, 0);
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
-            Gson gson = new Gson();
-            gson.toJson(stat, out);
-            out.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException(e);
-        }
-    }
-*/
 }
