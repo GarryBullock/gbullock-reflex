@@ -38,29 +38,33 @@ public class ReactionStatistics {
         return strings;
     }
 
+    public void clear(){
+        statList.clear();
+    }
+
     private String minStats(){
-        return ("Minimum Time \n" +
+        return ("\nMinimum Time \n" +
                 "\t\t\tLast 10:  "+ Collections.min(getLastX(10)) + " ms\n" +
                 "\t\t\tLast 100: "+ Collections.min(getLastX(100)) + " ms\n" +
                 "\t\t\tAll Time: "+ Collections.min(statList)+ " ms");
     }
 
     private String maxStats(){
-        return ("Maximum Time \n" +
+        return ("\nMaximum Time \n" +
                 "\t\t\tLast 10: "+ Collections.max(getLastX(10)) + " ms\n" +
                 "\t\t\tLast 100: "+ Collections.max(getLastX(100)) + " ms\n" +
                 "\t\t\tAll Time: "+ Collections.max(statList)+ " ms");
     }
 
     private String avgStats(){
-        return ("Average Time \n" +
+        return ("\nAverage Time \n" +
                 "\t\t\tLast 10: "+ getAvg(getLastX(10))+ " ms\n" +
                 "\t\t\tLast 100: "+ getAvg(getLastX(100)) + " ms\n" +
                 "\t\t\tAll Time: " + getAvg(statList) + " ms");
     }
 
     private String medianStats(){
-        return ("Median Time \n" +
+        return ("\nMedian Time \n" +
                 "\t\t\tLast 10: "+ getMedian(getLastX(10)) + " ms\n" +
                 "\t\t\tLast 100: "+ getMedian(getLastX(100)) + " ms\n" +
                 "\t\t\tAll Time: "+ getMedian(statList)) + " ms";

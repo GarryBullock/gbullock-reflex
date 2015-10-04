@@ -29,9 +29,6 @@ public class ReactionGame {
     private long userTapTime;
     private final Handler h = new Handler();
 
-    private final int minTime = 10;
-    private final int maxTime = 2000;
-
     private Button button;
     private TextView text;
     private ReactionStatistics stats = new ReactionStatistics();
@@ -102,12 +99,18 @@ public class ReactionGame {
         return stats;
     }
 
+    public void clear(){
+        stats.clear();
+        stats.addStat(0);
+        close();
+    }
+
     //stackoverflow: http://stackoverflow.com/questions/6029495/how-can-i-generate-random-number-in-specific-range-in-android
     //user: Mr.Polywhirl
     //Date: Sep 27/2015
     public long randomTime(){
         Random random = new Random();
-        return random.nextInt(maxTime - minTime) + minTime;
+        return random.nextInt(2000 - 10) + 10;
     }
 
     //Code modified with permission from Joshua Campbell
@@ -131,7 +134,7 @@ public class ReactionGame {
     //Code modified with permission from Joshua Campbell
     //https://github.com/joshua2ua/lonelyTwitter
     //Date: Sep 28/2015
-    private void saveInFile() {
+    public void saveInFile() {
         try {
             //MODE_APPEND appends to end of file, 0 is write mode
             FileOutputStream fos = context.openFileOutput(FILENAME, 0);

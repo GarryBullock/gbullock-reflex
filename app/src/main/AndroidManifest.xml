@@ -36,6 +36,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="garrybullock.reflex.MainActivity" />
         </activity>
+        <activity
+            android:name=".TriviaBuzzerActivity"
+            android:label="@string/title_activity_trivia_buzzer" >
+        </activity>
     </application>
 
 </manifest>

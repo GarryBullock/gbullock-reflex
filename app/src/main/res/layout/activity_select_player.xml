@@ -28,7 +28,8 @@
             android:id="@+id/twoPlayerButton"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".25"
-            android:textSize="26dp" />
+            android:textSize="26dp"
+            android:onClick="selectTwoPlayers" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +45,8 @@
             android:id="@+id/threePlayerButton"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".25"
-            android:textSize="26dp" />
+            android:textSize="26dp"
+            android:onClick="selectThreePlayers" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,7 +62,8 @@
             android:id="@+id/fourPlayerButton"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".25"
-            android:textSize="26dp" />
+            android:textSize="26dp"
+            android:onClick="selectFourPlayers" />
 
     </LinearLayout>
 </RelativeLayout>

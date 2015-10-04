@@ -7,4 +7,7 @@
     <string name="title_activity_select_player">SelectPlayerActivity</string>
     <string name="title_activity_two_player">TwoPlayerActivity</string>
     <string name="title_activity_statistics">Statistics</string>
+    <string name="title_activity_trivia_buzzer">Trivia Buzzer</string>
+    <string name="email_statistics">Email Statistics</string>
+    <string name="clear_statistics">Clear Statistics</string>
 </resources>

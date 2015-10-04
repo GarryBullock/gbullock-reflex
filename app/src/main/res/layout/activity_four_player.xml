@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:layout_weight=".5">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Player 3"
+                android:id="@+id/playerThreeFourPlayer"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".5"
+                android:layout_margin="10dp"
+                android:onClick="playerThreeClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Player 4"
+                android:id="@+id/playerFourFourPlayer"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".5"
+                android:layout_margin="10dp"
+                android:onClick="playerFourClick" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:layout_weight=".5">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Player 1"
+                android:id="@+id/playerOneFourPlayer"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".5"
+                android:layout_margin="10dp"
+                android:onClick="playerOneClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Player 2"
+                android:id="@+id/playerTwoFourPlayer"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".5"
+                android:layout_margin="10dp"
+                android:onClick="playerTwoClick" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
