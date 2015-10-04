@@ -29,11 +29,11 @@ public class TriviaBuzzer {
 
     public void incrementPlayer(int player, int base){
         buzzers[base + (player - 1)]++;
-        //buzz.set(base + (player - 1), buzz.get(base + (player - 1)) + 1);
+
     }
 
     public int getPlayer(int player, int base){
-        return buzzers[base + (player - 1)];//buzz.get(base+(player-1));
+        return buzzers[base + (player - 1)];
     }
 
     public ArrayList<String> getStats(){
@@ -70,10 +70,8 @@ public class TriviaBuzzer {
 
             buzzers = gson.fromJson(in, int[].class);
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             buzzers = new int[9];
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             throw new RuntimeException(e);
         }
     }
@@ -90,10 +88,8 @@ public class TriviaBuzzer {
             out.flush();
             fos.close();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             throw new RuntimeException(e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             throw new RuntimeException(e);
         }
     }

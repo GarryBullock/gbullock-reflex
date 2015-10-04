@@ -4,31 +4,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Random;
-
-
 public class ReactionTestActivity extends AppCompatActivity {
     private Button button;
     private TextView text;
-    private ReactionStatistics stat;
-
-    private static final String FILENAME = "persist.sav";
     private ReactionGame game;
     private Boolean firstLoop = true;
 

@@ -47,7 +47,7 @@ public class StatisticsActivity extends AppCompatActivity {
         buzzerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, buzzer.getStats());
 
         listView.setAdapter(reactionAdapter);
-        initializeListeners();
+        //initializeListeners();
     }
 
     @Override
@@ -81,10 +81,14 @@ public class StatisticsActivity extends AppCompatActivity {
                 buzzerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, buzzer.getStats());
                 game.clear();
                 if(listView.getAdapter() == reactionAdapter){
+                    //set the reactionAdapter after, otherwise the above check will always fail
                     reactionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getStats().getStatStrings());
                     listView.setAdapter(reactionAdapter);
                 }
-                else listView.setAdapter(buzzerAdapter);
+                else {
+                    reactionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getStats().getStatStrings());
+                    listView.setAdapter(buzzerAdapter);
+                }
                 return true;
         }
 
@@ -104,21 +108,5 @@ public class StatisticsActivity extends AppCompatActivity {
         listView.setAdapter((buzzerAdapter));
     }
 
-    private void initializeListeners(){
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_EMAIL, "gbullock@ualberta.ca");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-                intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
-
-                startActivity(Intent.createChooser(intent, "Send Email"));
-            }
-        };
-        Button button = (Button) findViewById(R.id.action_settings);
-        //button.setOnClickListener(listener);
-    }
 
 }
