@@ -22,7 +22,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
+/*
+    TriviaBuzzerActivity interacts with TriviaBuzzerGame to implement the buzzer game.
+    Its layout and number of players is provided by SelectPlayerActivity. It displays necessary
+    messages and relays player clicks to TriviaBuzzerGame.
+ */
 public class TriviaBuzzerActivity extends AppCompatActivity {
     private int numPlayers;
     private TriviaBuzzerGame game = new TriviaBuzzerGame(TriviaBuzzerActivity.this);

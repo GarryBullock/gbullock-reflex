@@ -24,7 +24,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+/*
+    ReactionActivity is the UI that presents ReactionGame to the player. It displays necessary
+    messages, and relays button presses to ReactionGame for interpretation.
+ */
 public class ReactionTestActivity extends AppCompatActivity {
     private Button button;
     private TextView text;

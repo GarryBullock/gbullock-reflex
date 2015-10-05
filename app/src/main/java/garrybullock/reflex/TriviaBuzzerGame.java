@@ -18,9 +18,10 @@
 package garrybullock.reflex;
 
 import android.content.Context;
-
-/**
- * Created by Garry on 2015-10-04.
+/*
+    TriviaBuzzerGame is responsible for controlling the trivia buzzer. It recieves player clicks
+    from TriviaBuzzerActivity, and then checks if they are a valid press. If they are it increments
+    that players number of wins via TriviaBuzzer.
  */
 public class TriviaBuzzerGame {
     private boolean validPress;

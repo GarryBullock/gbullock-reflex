@@ -25,7 +25,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+/*
+    StatisticsActivity displays all statistics for the user. It retrieves data from both
+    ReactionGame and TriviaBuzzer to display for the user. Through its settings menu it also allows
+    the user to email statistics, and clear statistics.
+ */
 public class StatisticsActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter<String> reactionAdapter;

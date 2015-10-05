@@ -36,6 +36,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Random;
 
+/*
+    Reaction game is the class that actually implements a reaction timing game for single player.
+    It uses handlers to control the timing, based on a random time between 10 and 2000ms.
+    It uses a ReactionStatistics class to store the players reaction times, as well as for data
+    persistence.
+ */
 public class ReactionGame {
     public boolean validPress;
     private long userTapTime;

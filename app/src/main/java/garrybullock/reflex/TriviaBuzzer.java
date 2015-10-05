@@ -31,6 +31,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/*
+    TriviaBuzzer stores the number of wins for each player using a simple integer array.
+    It uses gson for persistence. It provides TriviaBuzzerGame and StatisticsActivity with
+    appropriate strings to represent the data.
+ */
 public class TriviaBuzzer {
     private int buzzers[] = new int[9];
     private String FILENAME = "BuzzerStats.sav";

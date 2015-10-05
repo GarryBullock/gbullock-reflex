@@ -21,7 +21,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
+/*
+    SelectPlayerActivity is simply a middle man between the main menu and TriviaBuzzerActivity.
+    Based on the selection the player makes here it will provide the appropriate layout and
+    number of players to TriviaBuzzerActivity.
+ */
 public class SelectPlayerActivity extends AppCompatActivity {
 
     @Override

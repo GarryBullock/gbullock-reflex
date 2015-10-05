@@ -21,6 +21,11 @@ package garrybullock.reflex;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/*
+    ReactionStatistics stores an ArrayList that is used to store player reaction times from
+    ReactionGame. It also provides necessary methods fro StatisticsActivity to display
+    current statistics on the players reaction times.
+ */
 public class ReactionStatistics {
 
     protected ArrayList<Integer> statList;

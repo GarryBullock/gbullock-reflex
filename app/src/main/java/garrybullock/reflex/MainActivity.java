@@ -21,7 +21,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
+/*
+    MainActivity serves as the entry point for the app. It allows the user to navigate to the
+    reaction game, trivia buzzer, or statistics.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
