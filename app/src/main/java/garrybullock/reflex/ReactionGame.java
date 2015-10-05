@@ -46,6 +46,7 @@ public class ReactionGame {
     private Context context;
     private String FILENAME = "ReactionStats.sav";
 
+    //Define a runnable that the handler will use to run the reaction game
     Runnable reactionGame = new Runnable() {
         @Override
         public void run() {

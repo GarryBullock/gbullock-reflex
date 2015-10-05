@@ -21,9 +21,6 @@ package garrybullock.reflex;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by Garry on 2015-09-27.
- */
 public class ReactionStatistics {
 
     protected ArrayList<Integer> statList;

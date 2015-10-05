@@ -35,16 +35,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchReactionTest(View view){
+        //When reactiontest button is clicked, launch the activity
         Intent intent = new Intent(this, ReactionTestActivity.class);
         startActivity(intent);
     }
 
     public void launchTriviaBuzzer(View view){
+        //When triviabuzzer button is clicked, launch the activity
         Intent intent = new Intent(this, SelectPlayerActivity.class);
         startActivity(intent);
     }
 
     public void launchStatsActivity(View view){
+        //When stats button is clicked, launch the activity
         Intent intent = new Intent(this, StatisticsActivity.class);
         startActivity(intent);
     }

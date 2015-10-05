@@ -29,9 +29,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-/**
- * Created by Garry on 2015-10-03.
- */
 public class TriviaBuzzer {
     private int buzzers[] = new int[9];
     private String FILENAME = "BuzzerStats.sav";
