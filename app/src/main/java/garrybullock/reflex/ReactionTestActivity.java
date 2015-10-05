@@ -19,8 +19,8 @@ package garrybullock.reflex;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,7 +51,6 @@ public class ReactionTestActivity extends AppCompatActivity {
         game.close();
     }
 
-    //currently on resume will play the first time through... must stop this
     @Override
     public void onResume(){
         super.onResume();
@@ -65,7 +64,6 @@ public class ReactionTestActivity extends AppCompatActivity {
             game.resumeGame();
         }
         else{
-            //game.validPress = false;
             firstLoop = false;
         }
     }

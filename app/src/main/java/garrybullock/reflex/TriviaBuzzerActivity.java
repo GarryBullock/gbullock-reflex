@@ -19,10 +19,8 @@ package garrybullock.reflex;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class TriviaBuzzerActivity extends AppCompatActivity {

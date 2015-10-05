@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#131e37">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,9 +18,10 @@
             android:id="@+id/playerThreeThreePlayer"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:textSize="22dp"
-            android:onClick="playerThreeClick" />
+            android:onClick="playerThreeClick"
+            android:background="#FFFFFF" />
 
         <Button
             android:layout_width="match_parent"
@@ -28,9 +30,10 @@
             android:id="@+id/playerTwoThreePlayer"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:textSize="22dp"
-            android:onClick="playerTwoClick" />
+            android:onClick="playerTwoClick"
+            android:background="#FFFFFF" />
 
         <Button
             android:layout_width="match_parent"
@@ -39,8 +42,9 @@
             android:id="@+id/playerOneThreePlayer"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:textSize="22dp"
-            android:onClick="playerOneClick" />
+            android:onClick="playerOneClick"
+            android:background="#FFFFFF" />
     </LinearLayout>
 </RelativeLayout>

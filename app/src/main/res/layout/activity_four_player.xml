@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#131e37">
 
     <LinearLayout
         android:orientation="vertical"
@@ -8,7 +9,9 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:baselineAligned="false"
+        android:background="#131e37">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -16,7 +19,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:weightSum="1"
-            android:layout_weight=".5">
+            android:layout_weight=".5"
+            android:background="#131e37">
 
             <Button
                 android:layout_width="wrap_content"
@@ -25,8 +29,9 @@
                 android:id="@+id/playerThreeFourPlayer"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".5"
-                android:layout_margin="10dp"
-                android:onClick="playerThreeClick" />
+                android:layout_margin="20dp"
+                android:onClick="playerThreeClick"
+                android:background="#FFFFFF" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -35,8 +40,9 @@
                 android:id="@+id/playerFourFourPlayer"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".5"
-                android:layout_margin="10dp"
-                android:onClick="playerFourClick" />
+                android:layout_margin="20dp"
+                android:onClick="playerFourClick"
+                android:background="#FFFFFF" />
         </LinearLayout>
 
         <LinearLayout
@@ -45,7 +51,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:weightSum="1"
-            android:layout_weight=".5">
+            android:layout_weight=".5"
+            android:background="#131e37">
 
             <Button
                 android:layout_width="wrap_content"
@@ -54,8 +61,9 @@
                 android:id="@+id/playerOneFourPlayer"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".5"
-                android:layout_margin="10dp"
-                android:onClick="playerOneClick" />
+                android:layout_margin="20dp"
+                android:onClick="playerOneClick"
+                android:background="#FFFFFF" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -64,8 +72,9 @@
                 android:id="@+id/playerTwoFourPlayer"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".5"
-                android:layout_margin="10dp"
-                android:onClick="playerTwoClick" />
+                android:layout_margin="20dp"
+                android:onClick="playerTwoClick"
+                android:background="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

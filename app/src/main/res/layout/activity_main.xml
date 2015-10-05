@@ -31,7 +31,8 @@
             android:layout_weight="0.25"
             android:textSize="32sp"
             android:onClick="launchReactionTest"
-            android:background="#45a4af" />
+            android:background="#ffffff"
+            android:layout_margin="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,7 +51,8 @@
             android:textSize="32sp"
             android:onClick="launchTriviaBuzzer"
             android:nestedScrollingEnabled="true"
-            android:background="#45a4af" />
+            android:background="#ffffff"
+            android:layout_margin="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,6 +72,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:onClick="launchStatsActivity"
-            android:background="#45a4af" />
+            android:background="#ffffff"
+            android:layout_margin="20dp" />
     </LinearLayout>
 </RelativeLayout>
