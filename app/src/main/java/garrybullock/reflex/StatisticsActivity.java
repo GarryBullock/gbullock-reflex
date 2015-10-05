@@ -46,8 +46,8 @@ public class StatisticsActivity extends AppCompatActivity {
         buzzer.loadFromFile();
         buzzerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, buzzer.getStats());
 
+        //default to viewing the reaction stats
         listView.setAdapter(reactionAdapter);
-        //initializeListeners();
     }
 
     @Override
@@ -97,10 +97,8 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     public void onClickReactionButton(View v){
-        //ListView view = (ListView) findViewById(R.id.statListView);
         listView.setAdapter(null);
         listView.setAdapter(reactionAdapter);
-        //reactionAdapter.notifyDataSetChanged();
     }
 
     public void onClickBuzzerButton(View v){

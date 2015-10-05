@@ -17,6 +17,10 @@ public class SelectPlayerActivity extends AppCompatActivity {
 
 
     public void selectTwoPlayers(View view){
+        //Based on a question from stack overflow
+        //StackOverflow: http://stackoverflow.com/questions/7175881/android-start-intent-with-different-layout
+        //User: DeeV
+        //Oct 3 2015
         Intent intent = new Intent(this, TriviaBuzzerActivity.class);
         intent.putExtra("layout", R.layout.activity_two_players);
         intent.putExtra("numPlayers", 2);
@@ -24,6 +28,10 @@ public class SelectPlayerActivity extends AppCompatActivity {
     }
 
     public void selectThreePlayers(View view){
+        //Based on a question from stack overflow
+        //StackOverflow: http://stackoverflow.com/questions/7175881/android-start-intent-with-different-layout
+        //User: DeeV
+        //Oct 3 2015
         Intent intent = new Intent(this, TriviaBuzzerActivity.class);
         intent.putExtra("layout", R.layout.activity_three_player);
         intent.putExtra("numPlayers", 3);
@@ -31,6 +39,10 @@ public class SelectPlayerActivity extends AppCompatActivity {
     }
 
     public void selectFourPlayers(View view){
+        //Based on a question from stack overflow
+        //StackOverflow: http://stackoverflow.com/questions/7175881/android-start-intent-with-different-layout
+        //User: DeeV
+        //Oct 3 2015
         Intent intent = new Intent(this, TriviaBuzzerActivity.class);
         intent.putExtra("layout", R.layout.activity_four_player);
         intent.putExtra("numPlayers", 4);

@@ -10,13 +10,11 @@ import android.view.View;
 
 public class TriviaBuzzerActivity extends AppCompatActivity {
     private int numPlayers;
-    private int arrayBase;
-    private TriviaBuzzer buzzer = new TriviaBuzzer(TriviaBuzzerActivity.this);
-    private boolean validPress = true;
+    private TriviaBuzzerGame game = new TriviaBuzzerGame(TriviaBuzzerActivity.this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Based on from stack overflow
+        //Based on a question from stack overflow
         //StackOverflow: http://stackoverflow.com/questions/7175881/android-start-intent-with-different-layout
         //User: DeeV
         //Oct 3 2015
@@ -26,56 +24,47 @@ public class TriviaBuzzerActivity extends AppCompatActivity {
         numPlayers = parameters.getInt("numPlayers");
         switch (numPlayers){
             case 2:
-                arrayBase = 0;
+                game.setBase(0);
                 break;
             case 3:
-                arrayBase = 2;
+                game.setBase(2);
                 break;
             case 4:
-                arrayBase = 5;
+                game.setBase(5);
                 break;
         }
         buildDismissibleMessage("After clicking get started, the game will pop up a message with " +
                 "who clicked first. Click next question to move on!", "Get Started");
-        buzzer.loadFromFile();
+        game.loadGame();
     }
 
     @Override
     public void onPause(){
         super.onPause();
-        buzzer.saveInFile();
+        game.saveGame();
     }
 
     public void playerOneClick(View v){
-        if(validPress) {
-            buzzer.incrementPlayer(1, arrayBase);
-            buildDismissibleMessage("Player one clicked first!", "Next Question");
-            validPress = false;
+        if(game.playerClicked(1)){
+            buildDismissibleMessage("Player One clicked first!", "Next Question");
         }
-
     }
 
     public void playerTwoClick(View v){
-        if(validPress) {
-            buzzer.incrementPlayer(2, arrayBase);
-            buildDismissibleMessage("Player two clicked first!", "Next Question");
-            validPress = false;
+        if(game.playerClicked(2)){
+            buildDismissibleMessage("Player Two clicked first!", "Next Question");
         }
     }
 
     public void playerThreeClick(View v){
-        if(validPress) {
-            buzzer.incrementPlayer(3, arrayBase);
-            buildDismissibleMessage("Player three clicked first!", "Next Question");
-            validPress = false;
+        if(game.playerClicked(1)){
+            buildDismissibleMessage("Player Three clicked first!", "Next Question");
         }
     }
 
     public void playerFourClick(View v){
-        if(validPress) {
-            buzzer.incrementPlayer(4, arrayBase);
-            buildDismissibleMessage("Player four clicked first!", "Next Question");
-            validPress = false;
+        if(game.playerClicked(1)){
+            buildDismissibleMessage("Player Four clicked first!", "Next Question");
         }
     }
 
@@ -87,8 +76,8 @@ public class TriviaBuzzerActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                validPress = true;
-                buzzer.saveInFile();
+                game.resetGame();
+                game.saveGame();
             }
         });
         builder.show();
