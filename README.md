@@ -1,7 +1,9 @@
 # gbullock-reflex
 Reflex tester and trivia game aid
 
-A working apk can be found at the src/bin/app-debug.apk. After installation it will appear under the name gbullock-reflex in the launcher.
+A working apk can be found at the app/bin/app-debug.apk. After installation it will appear under the name gbullock-reflex in the launcher.
+
+UML Documentation can be found at app/doc/gbullock-reflex_UML.dia
 
 A video demonstration can be found on youtube at: https://www.youtube.com/watch?v=xrWXONjvNKk
 
