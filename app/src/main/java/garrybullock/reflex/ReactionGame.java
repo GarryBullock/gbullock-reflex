@@ -1,17 +1,29 @@
+/*
+
+        Copyright 2015 Garry Bullock
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+
+*/
 package garrybullock.reflex;
 
-import android.app.Activity;
-import android.app.Application;
+
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
-
-import org.w3c.dom.Text;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -22,9 +34,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Random;
 
-/**
- * Created by Garry on 2015-10-03.
- */
 public class ReactionGame {
     public boolean validPress;
     private long userTapTime;

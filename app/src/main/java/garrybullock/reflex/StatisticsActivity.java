@@ -1,3 +1,20 @@
+/*
+
+        Copyright 2015 Garry Bullock
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+
+*/
 package garrybullock.reflex;
 
 import android.content.Intent;
@@ -65,6 +82,10 @@ public class StatisticsActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_settings:
+
+                //this section of code is modified from the Android Developer website, which
+                //licenses all documentation under Apache 2.0. unless otherwise stated:
+                //https://developer.android.com/guide/components/intents-common.html, Oct 3 2015
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_EMAIL, "gbullock@ualberta.ca");
@@ -76,7 +97,7 @@ public class StatisticsActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_clear:
-
+                //clear buzzer and reaction game statistics and
                 buzzer.clear();
                 buzzerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, buzzer.getStats());
                 game.clear();
